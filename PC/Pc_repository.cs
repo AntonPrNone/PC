@@ -20,5 +20,15 @@ namespace PC
                 if (assemblies[i].namePC == nameconf) assemblies.RemoveAt(i);
             }
         }
+
+        public PC_Config ReturnConfig(string nameconf)
+        {
+            for (int i = 0; i < assemblies.Count; i++)
+            {
+                if (assemblies[i].namePC == nameconf) return assemblies[i];
+            }
+
+            return null;
+        }
     }
 }
