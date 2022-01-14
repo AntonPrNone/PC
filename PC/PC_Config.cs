@@ -2,6 +2,7 @@
 
 namespace PC
 {
+    [Serializable]
     public class PC_Config
     {
         public string namePC; // Наименование ПК
