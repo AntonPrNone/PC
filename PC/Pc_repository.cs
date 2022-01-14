@@ -27,7 +27,6 @@ namespace PC
             {
                 if (assemblies[i].namePC == nameconf) return assemblies[i];
             }
-
             return null;
         }
     }
