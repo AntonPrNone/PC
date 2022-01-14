@@ -4,16 +4,16 @@ using System.Text;
 
 namespace PC
 {
-    class Pc_repository
+    public class Pc_repository
     {
-        List<PC_Config> assemblies = new List<PC_Config>();
+        static List<PC_Config> assemblies = new List<PC_Config>();
 
-        public void CreateConfig(PC_Config conf)
+        public static void CreateConfig(PC_Config conf)
         {
             assemblies.Add(conf);
         }
 
-        public void RemoveConfig(string nameconf)
+        public static void RemoveConfig(string nameconf)
         {
             for (int i = 0; i < assemblies.Count; i++)
             {
@@ -21,7 +21,7 @@ namespace PC
             }
         }
 
-        public PC_Config ReturnConfig(string nameconf)
+        public static PC_Config ReturnConfig(string nameconf)
         {
             for (int i = 0; i < assemblies.Count; i++)
             {
