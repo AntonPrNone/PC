@@ -12,7 +12,7 @@ namespace PC
         public int motherboard_numberSlotsForRAM, motherboard_numberSlotsForVideocard, motherboard_numberSlotsForSATA, motherboard_numberSlotsForUSB;
 
         // Процессор
-        public string CPU_name = "1";
+        public string CPU_name;
         public int CPU_numberCores;
         public int CPU_frequency;
 
