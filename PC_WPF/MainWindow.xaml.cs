@@ -24,5 +24,20 @@ namespace PC_WPF
         {
             InitializeComponent();
         }
+
+        private void btn_create_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btn_delete_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btn_browse_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
