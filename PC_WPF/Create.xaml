@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PC_WPF"
         mc:Ignorable="d"
-        Title="Create" Height="503" Width="1696" Background="Black" Foreground="White">
+        Title="Create" Height="520" Width="1696" Background="Black" Foreground="White">
     <Grid>
         <TextBox x:Name="tb0" HorizontalAlignment="Center" Margin="0,50,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.75,1.673" TextAlignment="Center"/>
         <Label Content="Название сборки" HorizontalAlignment="Center" Margin="0,15,0,0" VerticalAlignment="Top" Foreground="#FF0051FF" FontSize="16"/>
@@ -15,7 +15,7 @@
         <TextBox x:Name="tb2" HorizontalAlignment="Left" Margin="199,155,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.75,1.673" TextAlignment="Center"/>
         <Label Content="Кол-во слотов для RAM" HorizontalAlignment="Left" Margin="18,151,0,0" VerticalAlignment="Top" Foreground="White"/>
         <TextBox x:Name="tb3" HorizontalAlignment="Left" Margin="199,195,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.75,1.673" TextAlignment="Center"/>
-        <Label Content="Кол-во слотов для Видеокарты" HorizontalAlignment="Left" Margin="18,191,0,0" VerticalAlignment="Top" Foreground="#FFAE00FF"/>
+        <Label Content="Кол-во слотов для Видеокарты" HorizontalAlignment="Left" Margin="18,191,0,0" VerticalAlignment="Top" Foreground="White"/>
         <TextBox x:Name="tb4" HorizontalAlignment="Left" Margin="199,237,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.75,1.673" TextAlignment="Center"/>
         <Label Content="Кол-во слотов для SATA" HorizontalAlignment="Left" Margin="18,233,0,0" VerticalAlignment="Top" Foreground="White"/>
         <TextBox x:Name="tb5" HorizontalAlignment="Left" Margin="199,278,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.75,1.673" TextAlignment="Center"/>
@@ -84,7 +84,7 @@
         <TextBox x:Name="tb33" HorizontalAlignment="Left" Margin="1548,114,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.75,1.673" TextAlignment="Center"/>
         <Label Content="Кол-во дост. вентиляторов" HorizontalAlignment="Left" Margin="1367,110,0,0" VerticalAlignment="Top" Foreground="White"/>
         <Label Content="Подсветка" HorizontalAlignment="Left" Margin="1367,151,0,0" VerticalAlignment="Top" Foreground="White"/>
-        <CheckBox x:Name="ch34" Content="CheckBox" HorizontalAlignment="Left" Margin="1591,158,0,0" VerticalAlignment="Top" Width="17"/>
+        <CheckBox x:Name="cb34" Content="CheckBox" HorizontalAlignment="Left" Margin="1591,158,0,0" VerticalAlignment="Top" Width="17"/>
         <Button Content="Сохранить и добавить" HorizontalAlignment="Center" Margin="0,451,0,0" VerticalAlignment="Top" Width="137" Foreground="Black" Background="White" BorderBrush="Red" Click="Button_Click"/>
 
     </Grid>
