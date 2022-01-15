@@ -5,8 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PC_WPF"
         mc:Ignorable="d"
-        Title="Delete" Height="450" Width="800">
+        Title="Delete" Height="450" Width="800" Background="Black" WindowStartupLocation="CenterScreen" Foreground="Black">
     <Grid>
-        
+        <Label x:Name="label1" Content="Удалить" HorizontalAlignment="Center" Margin="0,150,0,0" VerticalAlignment="Top" Foreground="Red" FontSize="18"/>
+        <TextBox x:Name="tb" HorizontalAlignment="Center" Margin="0,200,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextAlignment="Center"/>
+        <Button Content="Ок" HorizontalAlignment="Center" Margin="0,294,0,0" VerticalAlignment="Top" Height="26" Width="100" FontSize="14" Background="White" Click="Button_Click"/>
+
     </Grid>
 </Window>

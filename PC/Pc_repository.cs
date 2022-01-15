@@ -13,12 +13,18 @@ namespace PC
             assemblies.Add(conf);
         }
 
-        public static void RemoveConfig(string nameconf)
+        public static bool RemoveConfig(string nameconf)
         {
             for (int i = 0; i < assemblies.Count; i++)
             {
-                if (assemblies[i].namePC == nameconf) assemblies.RemoveAt(i);
+                if (assemblies[i].namePC == nameconf)
+                {
+                    assemblies.RemoveAt(i);
+                    return true;
+                }
             }
+
+            return false;
         }
 
         public static PC_Config ReturnConfig(string nameconf)

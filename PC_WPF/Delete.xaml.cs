@@ -21,5 +21,12 @@ namespace PC_WPF
         {
             InitializeComponent();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            if (PC.Pc_repository.RemoveConfig(tb.Text)) label1.Content = "Удачно";
+            else label1.Content = "Не найдено";
+            tb.Text = "";
+        }
     }
 }

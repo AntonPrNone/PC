@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PC_WPF"
         mc:Ignorable="d"
-        Title="Create" Height="520" Width="1696" Background="Black" Foreground="White">
+        Title="Create" Height="520" Width="1696" Background="Black" Foreground="White" WindowStartupLocation="CenterScreen">
     <Grid>
         <TextBox x:Name="tb0" HorizontalAlignment="Center" Margin="0,50,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.75,1.673" TextAlignment="Center"/>
         <Label Content="Название сборки" HorizontalAlignment="Center" Margin="0,15,0,0" VerticalAlignment="Top" Foreground="#FF0051FF" FontSize="16"/>
