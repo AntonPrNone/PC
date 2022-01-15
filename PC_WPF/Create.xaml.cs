@@ -25,6 +25,7 @@ namespace PC_WPF
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             PC.PC_Config conf = new PC.PC_Config();
+            conf.namePC = tb0.Text;
             conf.motherboard_name = tb1.Text;
             conf.motherboard_numberSlotsForRAM = Convert.ToInt32(tb2.Text);
             conf.motherboard_numberSlotsForVideocard = Convert.ToInt32(tb3.Text);
