@@ -23,7 +23,7 @@
         <TextBox x:Name="tb9" HorizontalAlignment="Left" Margin="530,113,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.75,1.673" TextAlignment="Center" SelectionBrush="Black"/>
         <Label Content="Процессор" HorizontalAlignment="Left" Margin="447,82,0,0" VerticalAlignment="Top" Foreground="#FFAE00FF" FontSize="14" RenderTransformOrigin="0.97,0.246"/>
         <Label Content="Наименование" HorizontalAlignment="Left" Margin="349,109,0,0" VerticalAlignment="Top" Foreground="White"/>
-        <TextBox x:Name="tb10" HorizontalAlignment="Left" Margin="530,155,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.75,1.673" TextAlignment="Center" Foreground="White"/>
+        <TextBox x:Name="tb10" HorizontalAlignment="Left" Margin="530,155,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.75,1.673" TextAlignment="Center" Foreground="Black"/>
         <Label Content="Кол-во ядер" HorizontalAlignment="Left" Margin="349,151,0,0" VerticalAlignment="Top" Foreground="White"/>
         <TextBox x:Name="tb11" HorizontalAlignment="Left" Margin="530,195,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.75,1.673" TextAlignment="Center" SelectionBrush="Black"/>
         <Label Content="Частота" HorizontalAlignment="Left" Margin="349,191,0,0" VerticalAlignment="Top" Foreground="White"/>

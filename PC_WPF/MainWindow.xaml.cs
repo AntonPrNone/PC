@@ -25,19 +25,19 @@ namespace PC_WPF
             InitializeComponent();
         }
 
-        private void btn_create_Click(object sender, RoutedEventArgs e)
+        private void Btn_create_Click(object sender, RoutedEventArgs e)
         {
             Create create = new Create();
             create.Show();
         }
 
-        private void btn_delete_Click(object sender, RoutedEventArgs e)
+        private void Btn_delete_Click(object sender, RoutedEventArgs e)
         {
             Delete delete = new Delete();
             delete.Show();
         }
 
-        private void btn_browse_Click(object sender, RoutedEventArgs e)
+        private void Btn_browse_Click(object sender, RoutedEventArgs e)
         {
             Browse browse = new Browse();
             browse.Show();
