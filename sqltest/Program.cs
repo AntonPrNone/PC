@@ -16,6 +16,7 @@ namespace sqltest
                 cn.ConnectionString = @"Data Source=DESKTOP-L9II8RV;Initial Catalog=PC_repository;Integrated Security=True;trust server certificate=True";
                 try
                 {
+                    
                     //Открыть подключение
                     cn.Open();
 
@@ -23,9 +24,18 @@ namespace sqltest
                     SqlCommand myCommand = new SqlCommand(strSQL, cn);
                     SqlDataReader dr = myCommand.ExecuteReader();
                     while (dr.Read())
-                        Console.WriteLine("NamePc: {0} Mother {1}", dr[0], dr[3]);
+                    { 
+                        if ((string)dr[0] == "MyPc")
+                        Console.WriteLine("{0}; {1}; {2}; {3}; {4}; {5}", dr[0], dr[1], dr[2], dr[3], dr[4], dr[5]);
+                    }
+                        
 
                     Console.ReadKey();
+                    
+
+                   
+
+
                 }
                 catch (SqlException ex)
                 {
@@ -39,8 +49,7 @@ namespace sqltest
                 }
             }
 
-            InventoryDAL a = new InventoryDAL();
-            a.InsertAuto("Name", "nameMother", 10);
+            
         }
     }
 
