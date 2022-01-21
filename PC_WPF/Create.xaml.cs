@@ -12,9 +12,6 @@ using System.Windows.Shapes;
 
 namespace PC_WPF
 {
-    /// <summary>
-    /// Логика взаимодействия для Create.xaml
-    /// </summary>
     public partial class Create : Window
     {
         public Create()
@@ -28,7 +25,7 @@ namespace PC_WPF
 
             try
             {
-                conf.namePC = tb0.Text;
+                /* conf.namePC = tb0.Text;
                 conf.motherboard_name = tb1.Text;
                 conf.motherboard_numberSlotsForRAM = Convert.ToInt32(tb2.Text);
                 conf.motherboard_numberSlotsForVideocard = Convert.ToInt32(tb3.Text);
@@ -65,6 +62,17 @@ namespace PC_WPF
                 conf.PC_Case_illumination = Convert.ToBoolean(cb34.IsChecked);
 
                 PC.Pc_repository.CreateConfig(conf);
+                */
+
+                PC_Core.PC_Manag a = new PC_Core.PC_Manag();
+                a.OpenConnection(@"Data Source=DESKTOP-L9II8RV;Initial Catalog=PC_repository;Integrated Security=True;trust server certificate=True");
+                //a.InsertTableValues("Name", "nameMother", 10);
+                //a.DeleteTableValues("Name");
+                //foreach (string i in a.ReturnTableValues())
+                //{
+                //    label1.Content = i;
+                //}
+                //a.CloseConnection();
             }
 
             catch

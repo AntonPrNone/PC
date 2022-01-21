@@ -22,7 +22,7 @@ namespace PC_Core
             connect.Close();
         }
 
-        public List<string> ReturnTableValues()
+        public List<string> ReturnTableValues(string namePc)
         {
             try
             {
@@ -32,7 +32,7 @@ namespace PC_Core
                 List<string> values = new List<string>(35);
                 while (dr.Read())
                 {
-                    if ((string)dr[0] == "MyPc")
+                    if ((string)dr[0] == namePc)
                     {
 
                         for (int i = 0; i < 35; i++)
@@ -40,7 +40,7 @@ namespace PC_Core
                             values.Add(dr[i].ToString());
                         }
                     }
-                }   
+                }
 
                 return values;
             }
@@ -53,7 +53,7 @@ namespace PC_Core
             }
         }
 
-        public void InsertTableValues(string namePC, string motherboard_name, int motherboard_numberSlotsForRAM)
+        public void InsertTableValues(string namePC, string motherboard_name, int motherboard_numberSlotsForRAM, int motherboard_numberSlotsForVideocard, int motherboard_numberSlotsForSATA, int motherboard_numberSlotsForUSB, string PSU_name, int PSU_power, int PSU_numberSATAconnectors, string CPU_name, int CPU_numberCores, int CPU_frequency, string videocard_name, int videocard_memory, int videocard_frequency, bool videocard_additionalMeals, string SSD_name, int SSD_memory, int SSD_reading, int SSD_record, string HDD_name, int HDD_memory, int HDD_reading, int HDD_record, string fan_name, int fan_rotationSpeed, int fan_quantity, string PC_Case_name, int PC_Case_length, int PC_Case_height, int PC_Case_width, int PC_Case_weight, string PC_Case_basicMaterial, int PC_Case_numberFans, bool PC_Case_illumination)
         {
             // Оператор SQL
             string sql = string.Format("Insert Into PC_config" +

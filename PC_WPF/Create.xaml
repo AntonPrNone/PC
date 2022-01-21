@@ -8,7 +8,7 @@
         Title="Create" Height="520" Width="1696" Background="Black" Foreground="White" WindowStartupLocation="CenterScreen">
     <Grid>
         <TextBox x:Name="tb0" HorizontalAlignment="Center" Margin="0,50,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.75,1.673" TextAlignment="Center"/>
-        <Label Content="Название сборки" HorizontalAlignment="Center" Margin="0,15,0,0" VerticalAlignment="Top" Foreground="#FF0051FF" FontSize="16"/>
+        <Label x:Name="label1" Content="Название сборки" HorizontalAlignment="Center" Margin="0,15,0,0" VerticalAlignment="Top" Foreground="#FF0051FF" FontSize="16"/>
         <TextBox x:Name="tb1" HorizontalAlignment="Left" Margin="199,113,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.75,1.673" TextAlignment="Center" SelectionBrush="Black"/>
         <Label Content="Материнская плата" HorizontalAlignment="Left" Margin="88,82,0,0" VerticalAlignment="Top" Foreground="#FFAE00FF" FontSize="14" RenderTransformOrigin="0.97,0.246"/>
         <Label Content="Наименование" HorizontalAlignment="Left" Margin="18,109,0,0" VerticalAlignment="Top" Foreground="White"/>

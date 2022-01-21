@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\PC\PC.csproj" />
+    <ProjectReference Include="..\PC_Core\PC_Core.csproj" />
   </ItemGroup>
 
 </Project>

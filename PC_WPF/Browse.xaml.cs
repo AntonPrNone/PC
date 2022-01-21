@@ -24,10 +24,16 @@ namespace PC_WPF
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            var conf = PC.Pc_repository.ReturnConfig(tb0.Text);
-            if (conf != null)
+            List<Object> tbList = new List<Object>() {tb0, tb1, tb2, tb3, tb4, tb5, tb6, tb7, tb8,
+                                                      tb9, tb10, tb11, tb12, tb13, tb14, cb15,
+                                                      tb16 , tb17, tb18, tb19, tb20, tb21, tb22,
+                                                      tb23, tb24, tb25, tb26, tb27, tb28, tb29,
+                                                      tb30, tb31, tb32 , tb33, cb34};
+
+            PC_Core.PC_Manag a = new PC_Core.PC_Manag();
+            if (tb0.Text != "")
             {
-                tb1.Text = conf.motherboard_name;
+                /*tb1.Text = conf.motherboard_name;
                 tb2.Text = conf.motherboard_numberSlotsForRAM.ToString();
                 tb3.Text = conf.motherboard_numberSlotsForVideocard.ToString();
                 tb4.Text = conf.motherboard_numberSlotsForSATA.ToString();
@@ -60,7 +66,24 @@ namespace PC_WPF
                 tb31.Text = conf.PC_Case_weight.ToString();
                 tb32.Text = conf.PC_Case_basicMaterial.ToString();
                 tb33.Text = conf.PC_Case_numberFans.ToString();
-                cb34.IsChecked = conf.PC_Case_illumination;
+                cb34.IsChecked = conf.PC_Case_illumination;*/
+
+                //a.InsertTableValues("Name", "nameMother", 10);
+                //a.DeleteTableValues("Name");
+
+                a = new PC_Core.PC_Manag();
+                a.OpenConnection(@"Data Source=DESKTOP-L9II8RV;Initial Catalog=PC_repository;Integrated Security=True;trust server certificate=True");
+                var configList = a.ReturnTableValues(tb0.Text);
+                a.CloseConnection();
+
+
+                for (int i = 0; i < 35; i++)
+                {
+                    if (tbList[i] is TextBox)
+                        (tbList[i] as TextBox).Text = configList[i];
+                    else if (tbList[i] is CheckBox)
+                        (tbList[i] as CheckBox).IsChecked = Convert.ToBoolean(configList[i]);
+                }
 
                 label1.Content = "Название сборки";
             }
