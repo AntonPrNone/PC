@@ -25,10 +25,10 @@ namespace PC_WPF
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             List<Object> tbList = new List<Object>() {tb0, tb1, tb2, tb3, tb4, tb5, tb6, tb7, tb8,
-                                                      tb9, tb10, tb11, tb12, tb13, tb14, cb15,
+                                                      tb9, tb10, tb11, cb1, tb12, tb13, tb14, tb15,
                                                       tb16 , tb17, tb18, tb19, tb20, tb21, tb22,
                                                       tb23, tb24, tb25, tb26, tb27, tb28, tb29,
-                                                      tb30, tb31, tb32 , tb33, cb34};
+                                                      tb30, tb31, tb32, cb2};
 
             PC_Core.PC_Manag a = new PC_Core.PC_Manag();
             if (tb0.Text != "")
@@ -82,7 +82,15 @@ namespace PC_WPF
                     if (tbList[i] is TextBox)
                         (tbList[i] as TextBox).Text = configList[i];
                     else if (tbList[i] is CheckBox)
-                        (tbList[i] as CheckBox).IsChecked = Convert.ToBoolean(configList[i]);
+                        try
+                        {
+                            (tbList[i] as CheckBox).IsChecked = Convert.ToBoolean(configList[i]);
+                        }
+
+                        catch
+                        {
+                            (tbList[i] as CheckBox).IsChecked = false;
+                        }
                 }
 
                 label1.Content = "Название сборки";
