@@ -24,9 +24,26 @@ namespace PC_WPF
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            if (PC.Pc_repository.RemoveConfig(tb.Text)) label1.Content = "Удачно";
-            else label1.Content = "Не найдено";
-            tb.Text = "";
+            PC_Core.PC_Manag a = new PC_Core.PC_Manag();
+            a.OpenConnection(@"Data Source=DESKTOP-L9II8RV;Initial Catalog=PC_repository;Integrated Security=True;trust server certificate=True");
+            try
+            {
+                a.DeleteTableValues(tb.Text);
+
+                label1.Content = "Удачно!";
+            }
+
+            catch
+            {
+                label1.Content = "Неудача";
+            }
+
+            finally
+            {
+                tb.Text = "";
+            }
+
+            a.CloseConnection();
         }
     }
 }

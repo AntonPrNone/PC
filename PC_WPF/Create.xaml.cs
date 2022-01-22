@@ -21,7 +21,6 @@ namespace PC_WPF
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            PC.PC_Config conf = new PC.PC_Config();
 
             try
             {
