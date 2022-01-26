@@ -24,54 +24,24 @@ namespace PC_WPF
 
             try
             {
-                /* conf.namePC = tb0.Text;
-                conf.motherboard_name = tb1.Text;
-                conf.motherboard_numberSlotsForRAM = Convert.ToInt32(tb2.Text);
-                conf.motherboard_numberSlotsForVideocard = Convert.ToInt32(tb3.Text);
-                conf.motherboard_numberSlotsForSATA = Convert.ToInt32(tb4.Text);
-                conf.motherboard_numberSlotsForUSB = Convert.ToInt32(tb5.Text);
-                conf.PSU_name = tb6.Text;
-                conf.PSU_power = Convert.ToInt32(tb7.Text);
-                conf.PSU_numberSATAconnectors = Convert.ToInt32(tb8.Text);
-                conf.CPU_name = tb9.Text;
-                conf.CPU_numberCores = Convert.ToInt32(tb10.Text);
-                conf.CPU_frequency = Convert.ToInt32(tb11.Text);
-                conf.videocard_name = tb12.Text;
-                conf.videocard_memory = Convert.ToInt32(tb13.Text);
-                conf.videocard_frequency = Convert.ToInt32(tb14.Text);
-                conf.videocard_additionalMeals = Convert.ToBoolean(cb15.IsChecked);
-                conf.SSD_name = tb16.Text;
-                conf.SSD_memory = Convert.ToInt32(tb17.Text);
-                conf.SSD_reading = Convert.ToInt32(tb18.Text);
-                conf.SSD_record = Convert.ToInt32(tb19.Text);
-                conf.HDD_name = tb20.Text;
-                conf.HDD_memory = Convert.ToInt32(tb21.Text);
-                conf.HDD_reading = Convert.ToInt32(tb22.Text);
-                conf.HDD_record = Convert.ToInt32(tb23.Text);
-                conf.fan_name = tb24.Text;
-                conf.fan_rotationSpeed = Convert.ToInt32(tb25.Text);
-                conf.fan_quantity = Convert.ToInt32(tb26.Text);
-                conf.PC_Case_name = tb27.Text;
-                conf.PC_Case_length = Convert.ToInt32(tb28.Text);
-                conf.PC_Case_height = Convert.ToInt32(tb29.Text);
-                conf.PC_Case_width = Convert.ToInt32(tb30.Text);
-                conf.PC_Case_weight = Convert.ToInt32(tb31.Text);
-                conf.PC_Case_basicMaterial = tb32.Text;
-                conf.PC_Case_numberFans = Convert.ToInt32(tb33.Text);
-                conf.PC_Case_illumination = Convert.ToBoolean(cb34.IsChecked);
-
-                PC.Pc_repository.CreateConfig(conf);
-                */
+                List<Object> tbList = new List<Object>() {tb0, tb1, tb2, tb3, tb4, tb5, tb6, tb7, tb8,
+                                                      tb9, tb10, tb11, cb1, tb12, tb13, tb14, tb15,
+                                                      tb16 , tb17, tb18, tb19, tb20, tb21, tb22,
+                                                      tb23, tb24, tb25, tb26, tb27, tb28, tb29,
+                                                      tb30, tb31, tb32, cb2};
 
                 PC_Core.PC_Manag a = new PC_Core.PC_Manag();
                 a.OpenConnection(@"Data Source=DESKTOP-L9II8RV;Initial Catalog=PC_repository;Integrated Security=True;trust server certificate=True");
-                //a.InsertTableValues("Name", "nameMother", 10);
-                //a.DeleteTableValues("Name");
-                //foreach (string i in a.ReturnTableValues())
-                //{
-                //    label1.Content = i;
-                //}
-                //a.CloseConnection();
+                a.InsertTableValues(tb0.Text, tb1.Text, Convert.ToInt32(tb2.Text), Convert.ToInt32(tb3.Text), Convert.ToInt32(tb4.Text), Convert.ToInt32(tb5.Text), tb6.Text, Convert.ToInt32(tb7.Text), Convert.ToInt32(tb8.Text), tb9.Text, Convert.ToInt32(tb10.Text), Convert.ToInt32(tb11.Text), tb12.Text, Convert.ToInt32(tb13.Text), Convert.ToInt32(tb14.Text), Convert.ToBoolean(cb1.IsChecked), tb15.Text, Convert.ToInt32(tb16.Text), Convert.ToInt32(tb17.Text), Convert.ToInt32(tb18.Text), tb19.Text, Convert.ToInt32(tb20.Text), Convert.ToInt32(tb21.Text), Convert.ToInt32(tb22.Text), tb23.Text, Convert.ToInt32(tb24.Text), Convert.ToInt32(tb25.Text), tb26.Text, Convert.ToInt32(tb27.Text), Convert.ToInt32(tb28.Text), Convert.ToInt32(tb29.Text), Convert.ToInt32(tb30.Text), tb31.Text, Convert.ToInt32(tb32.Text), Convert.ToBoolean(cb2.IsChecked));
+                a.CloseConnection();
+
+                for (int i = 0; i < 35; i++)
+                {
+                    if (tbList[i] is TextBox)
+                        (tbList[i] as TextBox).Clear();
+                    else if (tbList[i] is CheckBox)
+                        (tbList[i] as CheckBox).IsChecked = false;
+                }
             }
 
             catch

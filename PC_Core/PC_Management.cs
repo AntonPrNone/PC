@@ -57,7 +57,7 @@ namespace PC_Core
         {
             // Оператор SQL
             string sql = string.Format("Insert Into PC_config" +
-                   "(namePC, motherboard_name, motherboard_numberSlotsForRAM) Values(@namePC, @motherboard_name, @motherboard_numberSlotsForRAM)");
+                   "(namePC, motherboard_name, motherboard_numberSlotsForRAM, motherboard_numberSlotsForVideocard, motherboard_numberSlotsForSATA, motherboard_numberSlotsForUSB, CPU_name, CPU_numberCores, CPU_frequency, videocard_name, videocard_memory, videocard_frequency, videocard_additionalMeals, SSD_name, SSD_memory, SSD_reading, SSD_record, HDD_name, HDD_memory, HDD_reading, HDD_record, fan_name, fan_rotationSpeed, fan_quantity, PSU_name, PSU_power, PSU_numberSATAconnectors, PC_Case_name, PC_Case_length, PC_Case_height, PC_Case_width, PC_Case_weight, PC_Case_basicMaterial, PC_Case_numberFans, PC_Case_illumination) Values(@namePC, @motherboard_name, @motherboard_numberSlotsForRAM, @motherboard_numberSlotsForVideocard, @motherboard_numberSlotsForSATA, @motherboard_numberSlotsForUSB, @CPU_name, @CPU_numberCores, @CPU_frequency, @videocard_name, @videocard_memory, @videocard_frequency, @videocard_additionalMeals, @SSD_name, @SSD_memory, @SSD_reading, @SSD_record, @HDD_name, @HDD_memory, @HDD_reading, @HDD_record, @fan_name, @fan_rotationSpeed, @fan_quantity, @PSU_name, @PSU_power, @PSU_numberSATAconnectors, @PC_Case_name, @PC_Case_length, @PC_Case_height, @PC_Case_width, @PC_Case_weight, @PC_Case_basicMaterial, @PC_Case_numberFans, @PC_Case_illumination)");
 
             using (SqlCommand cmd = new SqlCommand(sql, this.connect))
             {
@@ -65,6 +65,38 @@ namespace PC_Core
                 cmd.Parameters.AddWithValue("@namePC", namePC);
                 cmd.Parameters.AddWithValue("@motherboard_name", motherboard_name);
                 cmd.Parameters.AddWithValue("@motherboard_numberSlotsForRAM", motherboard_numberSlotsForRAM);
+                cmd.Parameters.AddWithValue("@motherboard_numberSlotsForVideocard", motherboard_numberSlotsForVideocard);
+                cmd.Parameters.AddWithValue("@motherboard_numberSlotsForSATA", motherboard_numberSlotsForSATA);
+                cmd.Parameters.AddWithValue("@motherboard_numberSlotsForUSB", motherboard_numberSlotsForUSB);
+                cmd.Parameters.AddWithValue("@CPU_name", CPU_name);
+                cmd.Parameters.AddWithValue("@CPU_numberCores", CPU_numberCores);
+                cmd.Parameters.AddWithValue("@CPU_frequency", CPU_frequency);
+                cmd.Parameters.AddWithValue("@videocard_name", videocard_name);
+                cmd.Parameters.AddWithValue("@videocard_memory", videocard_memory);
+                cmd.Parameters.AddWithValue("@videocard_frequency", videocard_frequency);
+                cmd.Parameters.AddWithValue("@videocard_additionalMeals", videocard_additionalMeals);
+                cmd.Parameters.AddWithValue("@SSD_name", SSD_name);
+                cmd.Parameters.AddWithValue("@SSD_memory", SSD_memory);
+                cmd.Parameters.AddWithValue("@SSD_reading", SSD_reading);
+                cmd.Parameters.AddWithValue("@SSD_record", SSD_record);
+                cmd.Parameters.AddWithValue("@HDD_name", HDD_name);
+                cmd.Parameters.AddWithValue("@HDD_memory", HDD_memory);
+                cmd.Parameters.AddWithValue("@HDD_reading", HDD_reading);
+                cmd.Parameters.AddWithValue("@HDD_record", HDD_record);
+                cmd.Parameters.AddWithValue("@fan_name", fan_name);
+                cmd.Parameters.AddWithValue("@fan_rotationSpeed", fan_rotationSpeed);
+                cmd.Parameters.AddWithValue("@fan_quantity", fan_quantity);
+                cmd.Parameters.AddWithValue("@PSU_name", PSU_name);
+                cmd.Parameters.AddWithValue("@PSU_power", PSU_power);
+                cmd.Parameters.AddWithValue("@PSU_numberSATAconnectors", PSU_numberSATAconnectors);
+                cmd.Parameters.AddWithValue("@PC_Case_name", PC_Case_name);
+                cmd.Parameters.AddWithValue("@PC_Case_length", PC_Case_length);
+                cmd.Parameters.AddWithValue("@PC_Case_height", PC_Case_height);
+                cmd.Parameters.AddWithValue("@PC_Case_width", PC_Case_width);
+                cmd.Parameters.AddWithValue("@PC_Case_weight", PC_Case_weight);
+                cmd.Parameters.AddWithValue("@PC_Case_basicMaterial", PC_Case_basicMaterial);
+                cmd.Parameters.AddWithValue("@PC_Case_numberFans", PC_Case_numberFans);
+                cmd.Parameters.AddWithValue("@PC_Case_illumination", PC_Case_illumination);
 
                 cmd.ExecuteNonQuery();
             }
