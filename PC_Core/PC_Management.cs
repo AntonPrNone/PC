@@ -57,7 +57,6 @@ namespace PC_Core
 
             using (SqlCommand cmd = new SqlCommand(sql, this.connect))
             {
-                // Занесение данных в БД
                 cmd.Parameters.AddWithValue("@namePC", namePC);
                 cmd.Parameters.AddWithValue("@motherboard_name", motherboard_name);
                 cmd.Parameters.AddWithValue("@motherboard_numberSlotsForRAM", motherboard_numberSlotsForRAM);
