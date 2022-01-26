@@ -1,67 +1,61 @@
 ﻿using System;
 using Microsoft.Data.SqlClient;
-using System.Text;
 using System.Collections.Generic;
-using System.Data;
 
 namespace PC_Core
 {
-
-    public class PC_Manag
+    public class PC_Manag 
     {
         private SqlConnection connect = null;
 
-        public void OpenConnection(string connectionString)
+        public void OpenConnection(string connectionString) 
         {
             connect = new SqlConnection(connectionString);
             connect.Open();
         }
 
-        public void CloseConnection()
+        public void CloseConnection() 
         {
             connect.Close();
         }
 
         public List<string> ReturnTableValues(string namePc)
         {
-            try
+            string strSQL = "SELECT * FROM PC_config";
+            SqlCommand myCommand = new SqlCommand(strSQL, connect);
+            SqlDataReader dr = myCommand.ExecuteReader();
+            List<string> values = new List<string>(35);
+            while (dr.Read())
             {
-                string strSQL = "SELECT * FROM PC_config";
-                SqlCommand myCommand = new SqlCommand(strSQL, connect);
-                SqlDataReader dr = myCommand.ExecuteReader();
-                List<string> values = new List<string>(35);
-                while (dr.Read())
+                if ((string)dr[0] == namePc)
                 {
-                    if ((string)dr[0] == namePc)
+                    for (int i = 0; i < 35; i++)
                     {
-
-                        for (int i = 0; i < 35; i++)
-                        {
-                            values.Add(dr[i].ToString());
-                        }
+                        values.Add(dr[i].ToString());
                     }
                 }
-
-                return values;
             }
 
-            catch (SqlException ex)
-            {
-                // Протоколировать исключение
-                Console.WriteLine(ex.Message);
-                return null;
-            }
+            return values;
         }
 
         public void InsertTableValues(string namePC, string motherboard_name, int motherboard_numberSlotsForRAM, int motherboard_numberSlotsForVideocard, int motherboard_numberSlotsForSATA, int motherboard_numberSlotsForUSB, string PSU_name, int PSU_power, int PSU_numberSATAconnectors, string CPU_name, int CPU_numberCores, int CPU_frequency, string videocard_name, int videocard_memory, int videocard_frequency, bool videocard_additionalMeals, string SSD_name, int SSD_memory, int SSD_reading, int SSD_record, string HDD_name, int HDD_memory, int HDD_reading, int HDD_record, string fan_name, int fan_rotationSpeed, int fan_quantity, string PC_Case_name, int PC_Case_length, int PC_Case_height, int PC_Case_width, int PC_Case_weight, string PC_Case_basicMaterial, int PC_Case_numberFans, bool PC_Case_illumination)
         {
-            // Оператор SQL
             string sql = string.Format("Insert Into PC_config" +
-                   "(namePC, motherboard_name, motherboard_numberSlotsForRAM, motherboard_numberSlotsForVideocard, motherboard_numberSlotsForSATA, motherboard_numberSlotsForUSB, CPU_name, CPU_numberCores, CPU_frequency, videocard_name, videocard_memory, videocard_frequency, videocard_additionalMeals, SSD_name, SSD_memory, SSD_reading, SSD_record, HDD_name, HDD_memory, HDD_reading, HDD_record, fan_name, fan_rotationSpeed, fan_quantity, PSU_name, PSU_power, PSU_numberSATAconnectors, PC_Case_name, PC_Case_length, PC_Case_height, PC_Case_width, PC_Case_weight, PC_Case_basicMaterial, PC_Case_numberFans, PC_Case_illumination) Values(@namePC, @motherboard_name, @motherboard_numberSlotsForRAM, @motherboard_numberSlotsForVideocard, @motherboard_numberSlotsForSATA, @motherboard_numberSlotsForUSB, @CPU_name, @CPU_numberCores, @CPU_frequency, @videocard_name, @videocard_memory, @videocard_frequency, @videocard_additionalMeals, @SSD_name, @SSD_memory, @SSD_reading, @SSD_record, @HDD_name, @HDD_memory, @HDD_reading, @HDD_record, @fan_name, @fan_rotationSpeed, @fan_quantity, @PSU_name, @PSU_power, @PSU_numberSATAconnectors, @PC_Case_name, @PC_Case_length, @PC_Case_height, @PC_Case_width, @PC_Case_weight, @PC_Case_basicMaterial, @PC_Case_numberFans, @PC_Case_illumination)");
+                   "(namePC, motherboard_name, motherboard_numberSlotsForRAM, motherboard_numberSlotsForVideocard," +
+                   " motherboard_numberSlotsForSATA, motherboard_numberSlotsForUSB, CPU_name, CPU_numberCores, CPU_frequency," +
+                   " videocard_name, videocard_memory, videocard_frequency, videocard_additionalMeals, SSD_name, SSD_memory, " +
+                   "SSD_reading, SSD_record, HDD_name, HDD_memory, HDD_reading, HDD_record, fan_name, fan_rotationSpeed, fan_quantity," +
+                   " PSU_name, PSU_power, PSU_numberSATAconnectors, PC_Case_name, PC_Case_length, PC_Case_height, PC_Case_width, PC_Case_weight," +
+                   " PC_Case_basicMaterial, PC_Case_numberFans, PC_Case_illumination) Values(@namePC, @motherboard_name, @motherboard_numberSlotsForRAM," +
+                   " @motherboard_numberSlotsForVideocard, @motherboard_numberSlotsForSATA, @motherboard_numberSlotsForUSB, @CPU_name, @CPU_numberCores, " +
+                   "@CPU_frequency, @videocard_name, @videocard_memory, @videocard_frequency, @videocard_additionalMeals, @SSD_name, @SSD_memory, @SSD_reading, " +
+                   "@SSD_record, @HDD_name, @HDD_memory, @HDD_reading, @HDD_record, @fan_name, @fan_rotationSpeed, @fan_quantity, @PSU_name, @PSU_power, " +
+                   "@PSU_numberSATAconnectors, @PC_Case_name, @PC_Case_length, @PC_Case_height, @PC_Case_width, @PC_Case_weight, @PC_Case_basicMaterial," +
+                   " @PC_Case_numberFans, @PC_Case_illumination)");
 
             using (SqlCommand cmd = new SqlCommand(sql, this.connect))
             {
-                // Добавить параметры
                 cmd.Parameters.AddWithValue("@namePC", namePC);
                 cmd.Parameters.AddWithValue("@motherboard_name", motherboard_name);
                 cmd.Parameters.AddWithValue("@motherboard_numberSlotsForRAM", motherboard_numberSlotsForRAM);
@@ -111,9 +105,10 @@ namespace PC_Core
                 {
                     cmd.ExecuteNonQuery();
                 }
+
                 catch (SqlException ex)
                 {
-                    Exception error = new Exception("К сожалению, эта машина заказана!", ex);
+                    Exception error = new Exception("Данной конфигурации не существует", ex);
                     throw error;
                 }
             }

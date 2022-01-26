@@ -13,11 +13,11 @@ using System.Windows.Shapes;
 namespace PC_WPF
 {
     /// <summary>
-    /// Логика взаимодействия для Error.xaml
+    /// Логика взаимодействия для Error_NotConfig.xaml
     /// </summary>
-    public partial class Error : Window
+    public partial class Error_NotConfig : Window
     {
-        public Error()
+        public Error_NotConfig()
         {
             InitializeComponent();
         }
