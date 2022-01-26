@@ -5,10 +5,7 @@ using System.Windows.Controls;
 
 namespace PC_WPF
 {
-    /// <summary>
-    /// Логика взаимодействия для Browse.xaml
-    /// </summary>
-    public partial class Browse : Window
+    public partial class Browse : Window // Просмотр конфигурации
     {
         public Browse()
         {
@@ -17,6 +14,7 @@ namespace PC_WPF
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            // Массив объектов с данными
             List<Object> tbList = new List<Object>() {tb0, tb1, tb2, tb3, tb4, tb5, tb6, tb7, tb8,
                                                       tb9, tb10, tb11, cb1, tb12, tb13, tb14, tb15,
                                                       tb16 , tb17, tb18, tb19, tb20, tb21, tb22,
@@ -29,7 +27,7 @@ namespace PC_WPF
             var configList = a.ReturnTableValues(tb0.Text);
             a.CloseConnection();
 
-            if (configList.Count > 0)
+            if (configList.Count > 0) // Проверка на существовании конфигурации
             {
                 for (int i = 0; i < 35; i++)
                 {
@@ -53,7 +51,7 @@ namespace PC_WPF
                 }
             }
 
-            else
+            else // Окно с описанием ошибки
             {
                 Error_NotConfig error_NotConfig = new Error_NotConfig();
                 error_NotConfig.Show();
