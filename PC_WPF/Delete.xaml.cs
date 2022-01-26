@@ -2,10 +2,7 @@
 
 namespace PC_WPF
 {
-    /// <summary>
-    /// Логика взаимодействия для Delete.xaml
-    /// </summary>
-    public partial class Delete : Window
+    public partial class Delete : Window // Удаление конфигурации
     {
         public Delete()
         {

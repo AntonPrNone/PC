@@ -1,18 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace PC_WPF
 {
-    public partial class Create : Window
+    public partial class Create : Window // Создание конфигурации
     {
         public Create()
         {
@@ -24,6 +17,7 @@ namespace PC_WPF
 
             try
             {
+                // Массив объектов с данными
                 List<Object> tbList = new List<Object>() {tb0, tb1, tb2, tb3, tb4, tb5, tb6, tb7, tb8,
                                                       tb9, tb10, tb11, cb1, tb12, tb13, tb14, tb15,
                                                       tb16 , tb17, tb18, tb19, tb20, tb21, tb22,
@@ -33,7 +27,7 @@ namespace PC_WPF
                 PC_Core.PC_Manag a = new PC_Core.PC_Manag();
                 a.OpenConnection(@"Data Source=DESKTOP-L9II8RV;Initial Catalog=PC_repository;Integrated Security=True;trust server certificate=True");
 
-                try
+                try // Проверка на верность формата ввода
                 {
                     string testX;
                     testX = tb0.Text; testX = tb1.Text; Convert.ToInt32(tb2.Text); Convert.ToInt32(tb3.Text); Convert.ToInt32(tb4.Text); Convert.ToInt32(tb5.Text);
@@ -44,12 +38,13 @@ namespace PC_WPF
                     Convert.ToInt32(tb29.Text); Convert.ToInt32(tb30.Text); testX = tb31.Text; Convert.ToInt32(tb32.Text); Convert.ToBoolean(cb2.IsChecked);
                 }
 
-                catch
+                catch // Окно с описанием ошибки
                 {
                     Error_InputFormat error_InputFormat = new Error_InputFormat();
                     error_InputFormat.Show();
                 }
 
+                // Добавление конфигурации
                 a.InsertTableValues(tb0.Text, tb1.Text, Convert.ToInt32(tb2.Text), Convert.ToInt32(tb3.Text), Convert.ToInt32(tb4.Text), Convert.ToInt32(tb5.Text),
                     tb6.Text, Convert.ToInt32(tb7.Text), Convert.ToInt32(tb8.Text), tb9.Text, Convert.ToInt32(tb10.Text), Convert.ToInt32(tb11.Text), tb12.Text,
                     Convert.ToInt32(tb13.Text), Convert.ToInt32(tb14.Text), Convert.ToBoolean(cb1.IsChecked), tb15.Text, Convert.ToInt32(tb16.Text),
@@ -59,7 +54,7 @@ namespace PC_WPF
 
                 a.CloseConnection();
 
-                for (int i = 0; i < 35; i++)
+                for (int i = 0; i < 35; i++) // Очищение формы от данных
                 {
                     if (tbList[i] is TextBox)
                         (tbList[i] as TextBox).Clear();
@@ -68,7 +63,7 @@ namespace PC_WPF
                 }
             }
 
-            catch
+            catch // Окно с описанием ошибки
             {
                 Error_NotFilledIn error_NotFilledIn = new Error_NotFilledIn();
                 error_NotFilledIn.Show();
