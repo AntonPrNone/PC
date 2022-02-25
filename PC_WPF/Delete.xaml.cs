@@ -11,13 +11,14 @@ namespace PC_WPF
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            PC_Core.PC_Manag a = new PC_Core.PC_Manag();
-            a.OpenConnection(@"Data Source=DESKTOP-E15SOJN;Initial Catalog=PC_repository;Integrated Security=True;trust server certificate=True");
+            PC_Core.PC_Manag obj = new PC_Core.PC_Manag();
+            if (!obj.DeleteTableValues(tb.Text)) // Возращает наличие данной конфигурации
+            {
+                Error_NotConfig error_NotConfig = new Error_NotConfig();
+                error_NotConfig.Show();
+            }
 
-            a.DeleteTableValues(tb.Text);
             tb.Clear();
-
-            a.CloseConnection();
         }
     }
 }
