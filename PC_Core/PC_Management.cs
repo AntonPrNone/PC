@@ -24,7 +24,7 @@ namespace PC_Core
             connect.Close();
         }
 
-        private bool CheckingTheCorrectnessOfTheData(List<string> ListData) // Проверка на корректность введёных данных
+        private bool CheckingTheCorrectnessOfTheData(List<string> ListData) // Проверка на корректность введённых данных
         {
             List<int> int_values = new List<int>() { 2, 3, 4, 5, 7, 8, 10, 11, 14, 15, 16, 18, 19, 20, 22, 23, 25, 26, 28, 29, 30, 31, 33 };
             List<int> bool_values = new List<int>() { 12, 34 };
